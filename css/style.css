@@ -167,12 +167,12 @@ h3 {
    border-left: 1px solid #000;
    padding-left: 10%;
    margin-left: 15%;
-
 }
 
 canvas {
    border-radius: 15px;
    margin-left: -15%;
+   border: 1px solid #000;
 }
 
 .score_unit_bg {

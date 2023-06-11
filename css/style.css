@@ -169,6 +169,11 @@ h3 {
    margin-left: 15%;
 }
 
+canvas {
+   border-radius: 15px;
+
+}
+
 .score_unit_bg {
    width: 250px;
    max-height: 100%;

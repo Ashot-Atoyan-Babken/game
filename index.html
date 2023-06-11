@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="shortcut icon" href="img/svg/pacman.svg" type="image/x-icon">
+   <title>Cool Game</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="container">
+         <div class="game-container">
+            <div class="game-header">
+               <nav class="navbar">
+                  <div class="left-flex">
+                     <div class="circle">
+                        <img src="img/star.png" alt="star.png">
+                     </div>
+                     <div class="coints">
+                        <p>0</p>
+                     </div>
+                  </div>
+                  <div class="center-flex">
+                     <div class="progress">
+                        <h2>Прогресс</h2>
+                        <div class="range" id="myProgress">
+                           <div class="green-circle" id="myBar"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="right-flex">
+                     <div class="circle">
+                        <img src="img/star.png" alt="star.png">
+                     </div>
+                     <div class="coints">
+                        <p>0</p>
+                     </div>
+                     <div class="plus">
+                        <div id="plus">+</div>
+                     </div>
+                  </div>
+                  <div class="pause">
+                     <div class="pause_bg">
+                        <div class="white"></div>
+                        <div class="white"></div>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+            <div class="game-body">
+               <div class="general_game_unit">
+                  <canvas width="400" height="400" style="border:1px solid black" id="myCanvas">
+                  </canvas>
+               </div>
+               <div class="right_score_unit">
+                  <div class="score_unit_bg">
+                     <div class="score_unit">
+                        <div class="step">
+                           <p>30</p>
+                        </div>
+                        <div class="score">
+                           <p>ОЧКИ:</p>
+                           <p>0</p>
+                        </div>
+                     </div>
+                  </div>
+                  <h3>бонусы</h3>
+                  <div class="bonuses">
+                     <div class="bonus">
+                        <div class="bonus_card">
+                           <img src="img/bomb.png" alt="bomb.png">
+                           <div class="money">
+                              <p class="count">3</p>
+                              <div class="money_circle">
+                                 <img src="img/star.png" alt="star.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="bonus">
+                        <div class="bonus_card">
+                           <img src="img/rocket.png" alt="rocket.png">
+                           <div class="money">
+                              <p class="count">5</p>
+                              <div class="money_circle">
+                                 <img src="img/star.png" alt="star.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="bonus">
+                        <div class="bonus_card">
+                           <img src="img/replace.png" alt="replace.png">
+                           <div class="money">
+                              <p class="count">10</p>
+                              <div class="money_circle">
+                                 <img src="img/star.png" alt="star.png">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+   </div>
+   </div>
+</body>
+<script src="js/script.js"></script>
+
+</html>

@@ -72,5 +72,87 @@ function handleClick(event) {
 }
 
 
+let pause = document.querySelector('.pause').onclick = () => {
+
+}
+
+// let canvas = document.querySelector("canvas");
+// let context = canvas.getContext("2d");
+// let blockSize = 40;
+// let rows = 10;
+// let cols = 10;
+// let blocks = [];
+
+// // blokner
+// for (let i = 0; i < rows; i++) {
+//    for (let j = 0; j < cols; j++) {
+//       let color = getRandomColor();
+//       blocks.push({ x: j * blockSize, y: i * blockSize, color: color, removed: true });
+//    }
+// }
 
 
+// function drawBlocks() {
+//    blocks.forEach((block) => {
+//       if (!block.removed) {
+//          context.strokeStyle = "white";
+//          context.strokeRect(block.x, block.y, blockSize, blockSize);
+//          context.fillStyle = block.color;
+//          context.fillRect(block.x, block.y, blockSize, blockSize);
+//       }
+//    });
+// }
+
+// // guyn
+// function getRandomColor() {
+//    let colors = ["darkorchid", "blue", "red", "green", "rgb(255, 187, 0)"];
+//    return colors[Math.floor(Math.random() * colors.length)];
+// }
+
+// //jnjel
+// function removeBlocks(indices) {
+//    indices.forEach((index) => {
+//       blocks[index].removed = true;
+//    });
+// }
+
+// // stugum
+// function checkNeighbors(row, col, targetColor, indicesToDelete) {
+//    let index = row * cols + col;
+//    if (row >= 0 && row < rows && col >= 0 && col < cols && !blocks[index].removed) {
+//       if (blocks[index].color === targetColor && !indicesToDelete.includes(index)) {
+//          indicesToDelete.push(index);
+//          checkNeighbors(row - 1, col, targetColor, indicesToDelete);
+//          checkNeighbors(row + 1, col, targetColor, indicesToDelete);
+//          checkNeighbors(row, col - 1, targetColor, indicesToDelete);
+//          checkNeighbors(row, col + 1, targetColor, indicesToDelete);
+//       }
+//    }
+// }
+
+
+// function handleClick(event) {
+//    let rect = canvas.getBoundingClientRect();
+//    let cx = event.clientX - rect.left;
+//    let cy = event.clientY - rect.top;
+//    let clickedBlockIndex = Math.floor(cy / blockSize) * cols + Math.floor(cx / blockSize);
+//    let clickedBlockColor = blocks[clickedBlockIndex].color;
+//    let indicesToDelete = [];
+
+
+//    let row = Math.floor(clickedBlockIndex / cols);
+//    let col = clickedBlockIndex % cols;
+//    checkNeighbors(row, col, clickedBlockColor, indicesToDelete);
+
+
+//    removeBlocks(indicesToDelete);
+
+
+//    context.clearRect(0, 0, canvas.width, canvas.height);
+//    drawBlocks();
+// }
+
+
+// drawBlocks();
+
+// canvas.addEventListener("click", handleClick);

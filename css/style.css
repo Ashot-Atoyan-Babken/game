@@ -11,7 +11,7 @@ body {
 .container {
    width: 1200px;
    margin: 0 auto;
-   max-height: 100vh;
+   max-height: 1000vh;
    border-radius: 25px;
    padding: 2vh 0 15vh;
    background: rgb(63, 94, 251);
@@ -19,6 +19,7 @@ body {
 }
 
 .navbar {
+   position: relative;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -78,7 +79,7 @@ h3 {
    display: flex;
    justify-content: center;
    align-items: center;
-   margin-right: -15%;
+   /* margin-right: -15%; */
 }
 
 
@@ -105,6 +106,7 @@ h3 {
 }
 
 .pause {
+   position: absolute;
    width: 55px;
    height: 55px;
    background-color: #6ECAE8;
@@ -113,7 +115,7 @@ h3 {
    align-items: center;
    border-radius: 15px;
    cursor: pointer;
-   margin: -8vh 0px 0px 23%;
+   margin: -8vh 0px 0px -100%;
    transition: 0.3s ease-in-out;
 }
 
@@ -171,7 +173,6 @@ h3 {
 
 canvas {
    border-radius: 15px;
-   margin-left: -15%;
    border: 1px solid #000;
 }
 
@@ -294,4 +295,25 @@ canvas {
 .bonus:hover {
    transform: scale(1.1);
 
+}
+
+@media screen and (max-width: 1024px) {
+   .game-body {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .right_score_unit {
+      border: none;
+      border-top: 1px solid #000;
+      margin-top: 25px;
+      padding-top: 25px;
+      padding-left: 0%;
+      margin-left: 0%;
+      width: 450px;
+   }
+
+   .score_unit_bg {
+      margin: 0 auto;
+   }
 }

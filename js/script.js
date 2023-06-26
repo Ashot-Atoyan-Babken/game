@@ -3,6 +3,7 @@ let step = document.querySelector('.step>p');
 let score = document.querySelector('.score>p');
 let canvas = document.querySelector("canvas");
 let context = canvas.getContext("2d");
+let result = 0;
 let images = [
    'img/general image/red.jpg',
    'img/general image/green.jpg',
@@ -14,7 +15,6 @@ let imageObj = [];
 function getRandomImage() {
    return images[Math.floor(Math.random() * images.length)];
 }
-let isPaused = false;
 let imageSize = 50;
 let canvasSize = 500;
 let numRows = Math.floor(canvasSize / imageSize);
@@ -42,7 +42,6 @@ for (let row = 0; row < numRows; row++) {
 
 let sameArr = [];
 let sameArr2 = [];
-let count = 0;
 canvas.addEventListener("click", handleClick);
 function getImage(x, y) {
    for (j = 0; j < imageObj.length; j++) {
@@ -63,6 +62,7 @@ function getNumber(x, y) {
 
 
 function handleClick(event) {
+   let count = 0;
    let rect = canvas.getBoundingClientRect();
    let cx = event.clientX - rect.left;
    let cy = event.clientY - rect.top;
@@ -197,26 +197,33 @@ function handleClick(event) {
          location.reload();
       }
    } else {
-      greenCircle.style.width = count * 2 + 'px'
+      result += count * 2
+      greenCircle.style.width = result + 'px'
+
+   }
+   if (count === 0) {
+      step.innerHTML -= 0;
+   } else {
       step.innerHTML -= 1;
-      score.innerHTML = count * 2;
-      if (step.innerHTML == 0) {
-         alert('you lose');
-         let ques = confirm('do you want to save your result')
-         if (ques) {
-            localStorage.setItem("count", count * 2);
-            location.reload();
-         }
-         else {
-            location.reload();
-         }
+
+   }
+   score.innerHTML = result;
+   if (step.innerHTML == 0) {
+      alert('you lose');
+      let ques = confirm('do you want to save your result')
+      if (ques) {
+         localStorage.setItem("count", count * 2);
+         location.reload();
+      }
+      else {
+         location.reload();
       }
    }
-
 }
+
+
 function reset() {
    location.reload();
-
 }
 let localStorageGet = localStorage.getItem('count');
 document.querySelector('.ball').innerHTML = localStorageGet

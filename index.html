@@ -4,17 +4,20 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <link rel="stylesheet" href="css/style.css">
+
    <link rel="shortcut icon" href="img/svg/pacman.svg" type="image/x-icon">
    <title>Cool Game</title>
 </head>
 
 <body>
-   <div class="wrapper">
-      <div class="container">
+   <div class="wrapper2">
+      <div class="container2">
          <div class="game-container">
             <div class="game-header">
-               <nav class="navbar">
+               <nav class="navbar2">
                   <div class="left-flex">
                      <div class="circle">
                         <img src="img/star.png" alt="star.png">
@@ -24,10 +27,10 @@
                      </div>
                   </div>
                   <div class="center-flex">
-                     <div class="progress">
+                     <div class="progress2">
                         <h2>Прогресс</h2>
                         <div class="range" id="myProgress">
-                           <div class="green-circle" id="myBar"></div>
+                           <div class="green-circle"></div>
                         </div>
                      </div>
                   </div>
@@ -36,24 +39,32 @@
                         <img src="img/star.png" alt="star.png">
                      </div>
                      <div class="coints">
-                        <p>0</p>
+                        <p class="ball">0</p>
                      </div>
                      <div class="plus">
-                        <div id="plus">+</div>
+                        <p id="plus">+</p>
                      </div>
                   </div>
                   <div class="pause">
                      <div class="pause_bg">
-                        <div class="white"></div>
-                        <div class="white"></div>
+                        <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center"
+                           data-toggle="modal" data-target="#exampleModal" style="width: 48px;
+                           height: 48px;
+                           background-color: #1E50A0;
+                           display: flex;
+                           justify-content: center;
+                           align-items: center;
+                           border-radius: 15px;">
+                           <div class="white"></div>
+                           <div class="white"></div>
+                        </button>
                      </div>
                   </div>
                </nav>
             </div>
             <div class="game-body">
                <div class="general_game_unit">
-                  <canvas width="400" height="400" style="border:1px solid black" id="myCanvas">
-                  </canvas>
+                  <canvas width="500" height="500"> </canvas>
                </div>
                <div class="right_score_unit">
                   <div class="score_unit_bg">
@@ -62,7 +73,7 @@
                            <p>30</p>
                         </div>
                         <div class="score">
-                           <p>ОЧКИ:</p>
+                           <span>ОЧКИ:</span>
                            <p>0</p>
                         </div>
                      </div>
@@ -110,7 +121,39 @@
       </div>
    </div>
    </div>
+
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Game Paused</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <p class="text-uppercase text-center">
+                  your game is paused
+               </p>
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+               <button type="button" class="btn btn-primary" data-dismiss="modal">Resume Game</button>
+               <button type="button" class="btn btn-danger" onclick="reset()">New Game</button>
+            </div>
+         </div>
+      </div>
+   </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 
 </html>

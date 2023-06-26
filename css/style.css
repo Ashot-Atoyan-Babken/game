@@ -18,11 +18,7 @@ body {
    background: linear-gradient(to top, rgba(63, 94, 251, 0.5) 0%, rgba(255, 0, 52, 0.4) 100%);
 }
 
-<<<<<<< HEAD
 .navbar2 {
-=======
-.navbar {
->>>>>>> 15d174a0a918a6ff894ea32632badd1d51254d57
    position: relative;
    display: flex;
    justify-content: center;
@@ -83,10 +79,6 @@ h3 {
    display: flex;
    justify-content: center;
    align-items: center;
-<<<<<<< HEAD
-=======
-   /* margin-right: -15%; */
->>>>>>> 15d174a0a918a6ff894ea32632badd1d51254d57
 }
 
 .coints>p {
@@ -121,11 +113,7 @@ h3 {
    align-items: center;
    border-radius: 15px;
    cursor: pointer;
-<<<<<<< HEAD
    margin: -7vh 0px 0px -104%;
-=======
-   margin: -8vh 0px 0px -100%;
->>>>>>> 15d174a0a918a6ff894ea32632badd1d51254d57
    transition: 0.3s ease-in-out;
 }
 
@@ -325,8 +313,5 @@ canvas {
    .score_unit_bg {
       margin: 0 auto;
    }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 15d174a0a918a6ff894ea32632badd1d51254d57

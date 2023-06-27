@@ -1,9 +1,10 @@
 let greenCircle = document.querySelector('.green-circle');
 let step = document.querySelector('.step>p');
 let score = document.querySelector('.score>p');
+let result = 0;
+
 let canvas = document.querySelector("canvas");
 let context = canvas.getContext("2d");
-let result = 0;
 let images = [
    'img/general image/red.jpg',
    'img/general image/green.jpg',
@@ -15,6 +16,7 @@ let imageObj = [];
 function getRandomImage() {
    return images[Math.floor(Math.random() * images.length)];
 }
+
 let imageSize = 50;
 let canvasSize = 500;
 let numRows = Math.floor(canvasSize / imageSize);
@@ -34,11 +36,14 @@ for (let row = 0; row < numRows; row++) {
          cordy: y
       }
       imageObj.push(obj);
+
+
       image.onload = function () {
          context.drawImage(image, x, y, imageSize, imageSize);
       };
    }
 }
+
 
 let sameArr = [];
 let sameArr2 = [];
@@ -61,6 +66,7 @@ function getNumber(x, y) {
 }
 
 
+
 function handleClick(event) {
    let count = 0;
    let rect = canvas.getBoundingClientRect();
@@ -79,9 +85,14 @@ function handleClick(event) {
                let img2 = getImage(x, y - imageSize)
                let img3 = getImage(x + imageSize, y);
                let img4 = getImage(x - imageSize, y)
+
+
+
                let imgArr = [img1, img2, img3, img4];
+
                for (c = 0; c < imgArr.length; c++) {
                   if (img == imgArr[c]) {
+
                      if (!sameArr.some(element => JSON.stringify(element) === JSON.stringify([x, y]))) {
                         sameArr.push([x, y]);
                      }
@@ -107,6 +118,7 @@ function handleClick(event) {
                choose(sameArr[f][0], sameArr[f][1]);
             }
             for (s = 0; s < sameArr.length; s++) {
+               context.clearRect(x, y, imageSize, imageSize);
                imageObj[getNumber(x, y)] = {
                   name: 0,
                   cordx: x,
@@ -128,7 +140,6 @@ function handleClick(event) {
       } else {
          x += imageSize;
       }
-
    }
 
    sameArr2.sort((a, b) => a[1] - b[1]);
@@ -141,17 +152,27 @@ function handleClick(event) {
          let x = sameArr2[row][0];
          let y = sameArr2[row][1] - col * 50;
          if (getNumber(x, y - imageSize) == undefined) {
+            url = getRandomImage()
+            image.src = url;
             imageObj[getNumber(x, y)] = {
-               name: 0,
+               name: url,
                cordx: x,
                cordy: y
             }
+            image.onload = function () {
+               context.drawImage(image, x, y, imageSize, imageSize);
+            };
          } else if (imageObj[getNumber(x, y - imageSize)].name == 0) {
+            url = getRandomImage()
+            image.src = url;
             imageObj[getNumber(x, y)] = {
-               name: 0,
+               name: url,
                cordx: x,
                cordy: y
             }
+            image.onload = function () {
+               context.drawImage(image, x, y, imageSize, imageSize);
+            };
          } else {
             image.src = getImage(x, y - imageSize);
             image.onload = function () {
@@ -163,64 +184,44 @@ function handleClick(event) {
                cordy: y
             }
          };
-      }
-   }
 
-   for (let row = 0; row < numRows; row++) {
-      for (let col = 0; col < numCols; col++) {
-         let image = new Image();
-         let x = col * imageSize;
-         let y = row * imageSize;
-         if (imageObj[getNumber(x, y)].name == 0) {
-            url = getRandomImage()
-            image.src = url;
-            imageObj[getNumber(x, y)] = {
-               name: url,
-               cordx: x,
-               cordy: y
-            }
-            image.onload = function () {
-               context.drawImage(image, x, y, imageSize, imageSize);
-            };
-         }
+
       }
    }
+   result += count * 2
    if (count * 2 >= 340) {
       alert('you win!!!')
       let ques = confirm('do you want to save your result')
 
       if (ques) {
-         localStorage.setItem("count", count * 2);
+         localStorage.setItem("count", result);
          location.reload();
       }
       else {
          location.reload();
       }
    } else {
-      result += count * 2
       greenCircle.style.width = result + 'px'
-
    }
    if (count === 0) {
       step.innerHTML -= 0;
    } else {
       step.innerHTML -= 1;
-
    }
    score.innerHTML = result;
    if (step.innerHTML == 0) {
       alert('you lose');
       let ques = confirm('do you want to save your result')
       if (ques) {
-         localStorage.setItem("count", count * 2);
+         localStorage.setItem("count", result);
          location.reload();
       }
       else {
          location.reload();
       }
    }
-}
 
+}
 
 function reset() {
    location.reload();
